@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabuj Mollah | IFRS 9 ECL Masterguide & Financial Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card-bg: #1e293b;
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.2);
+      --bkash: #e2136e;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Navbar */
+    nav {
+      background: rgba(11, 17, 32, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .brand span { color: var(--accent); }
+    .btn-buy-nav {
+      background: var(--bkash);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+    .btn-buy-nav:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* Hero Section */
+    .hero { padding: 60px 0 40px; text-align: center; }
+    .badge {
+      display: inline-block;
+      background: var(--accent-glow);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 2.5rem; line-height: 1.3; margin-bottom: 16px; font-weight: 800; }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 30px; }
+    
+    /* E-book Showcase Grid */
+    .product-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .book-cover {
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      border: 2px solid #38bdf8;
+      border-radius: 12px;
+      padding: 40px 24px;
+      text-align: center;
+      box-shadow: 12px 12px 0px rgba(0,0,0,0.4);
+    }
+    .book-cover h3 { font-size: 1.6rem; color: #fff; margin-bottom: 12px; }
+    .book-cover p { color: #38bdf8; font-weight: 600; font-size: 0.9rem; margin-bottom: 20px; }
+    .price-tag { margin-top: 15px; font-size: 1.4rem; font-weight: 700; color: #facc15; }
+    .price-tag del { color: var(--text-muted); font-size: 1rem; margin-right: 8px; }
+
+    .book-details h2 { font-size: 1.8rem; margin-bottom: 15px; }
+    .book-features { list-style: none; margin: 20px 0; }
+    .book-features li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: #cbd5e1; }
+    .book-features i { color: var(--accent); }
+
+    .btn-action-group { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 25px; }
+    .btn-primary {
+      background: var(--bkash);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-secondary:hover { background: #334155; }
+
+    /* Services Section */
+    .section-title { text-align: center; margin-bottom: 40px; }
+    .section-title h2 { font-size: 2rem; margin-bottom: 10px; }
+    .section-title p { color: var(--text-muted); }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 70px;
+    }
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
+    .service-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .service-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+    .service-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Share Bar */
+    .share-section {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .share-buttons { display: flex; justify-content: center; gap: 15px; margin-top: 15px; flex-wrap: wrap; }
+    .share-btn {
+      padding: 10px 18px;
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    .share-wa { background: #25d366; }
+    .share-fb { background: #1877f2; }
+    .share-li { background: #0a66c2; }
+    .share-copy { background: #475569; cursor: pointer; border: none; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.75);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal.active { display: flex; }
+    .modal-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      max-width: 480px;
+      width: 100%;
+      border-radius: 14px;
+      padding: 30px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px; right: 15px;
+      background: none; border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 6px; font-size: 0.9rem; }
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #0b1120;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    .bkash-badge {
+      background: #fff;
+      color: var(--bkash);
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; }
+
+    @media (max-width: 768px) {
+      .product-box { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="brand">Sabuj <span>Mollah</span></a>
+      <button class="btn-buy-nav" onclick="openPaymentModal()">ই-বুক কিনুন</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="container hero">
+    <span class="badge">IFRS 9 Expected Credit Loss (ECL) & Banking Solutions</span>
+    <h1>ক্রেডিট রিস্ক অ্যানালাইসিস এবং ECL মডেলিংয়ের পূর্ণাঙ্গ গাইড</h1>
+    <p>ব্যাংকিং প্রফেশনাল, রিস্ক ম্যানেজার ও ফাইন্যান্স প্রফেশনালদের জন্য বাস্তবসম্মত কেস স্টাডি, প্র্যাকটিক্যাল এক্সেল মডেল এবং কমপ্লায়েন্স স্ট্র্যাটেজি।</p>
+  </div>
+
+  <div class="container">
+    <!-- Product Showcase -->
+    <div class="product-box">
+      <div class="book-cover">
+        <i class="fa-solid fa-book-bookmark" style="font-size: 3rem; color: #38bdf8; margin-bottom: 15px;"></i>
+        <h3>IFRS 9 ECL & Credit Risk Modeling</h3>
+        <p>A Practical Implementation Guide</p>
+        <span style="font-size: 0.85rem; background: #0284c7; padding: 4px 10px; border-radius: 4px;">ই-বুক + রেডি এক্সেল মডেল</span>
+        <div class="price-tag">
+          <del>৳ ১,৫০০</del> ৳ ৭৫০ (৫০% অফার)
+        </div>
+      </div>
+
+      <div class="book-details">
+        <h2>বইটি থেকে আপনি যা শিখবেন:</h2>
+        <ul class="book-features">
+          <li><i class="fa-solid fa-circle-check"></i> PD, LGD এবং EAD ক্যালকুলেশন ও মেথডলজি</li>
+          <li><i class="fa-solid fa-circle-check"></i> বাংলাদেশ ব্যাংক গাইডলাইন ও IFRS 9 স্টেজ ক্লাসিফিকেশন</li>
+          <li><i class="fa-solid fa-circle-check"></i> রেডিমেড এক্সেল ECL মডেল টেমপ্লেট সহ</li>
+          <li><i class="fa-solid fa-circle-check"></i> ক্রেডিট মেমোরেন্ডাম ও বোর্ড নোট তৈরির কৌশল</li>
+        </ul>
+        <div class="btn-action-group">
+          <button class="btn-primary" onclick="openPaymentModal()"><i class="fa-solid fa-bolt"></i> সরাসরি অর্ডার করুন (বিকাশ/নগদ)</button>
+          <a href="#services" class="btn-secondary"><i class="fa-solid fa-briefcase"></i> অন্যান্য সার্ভিস</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Share Hub -->
+    <div class="share-section">
+      <h3 style="margin-bottom: 8px;">সোশ্যাল মিডিয়ায় বন্ধুদের সাথে শেয়ার করুন</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">ফাইন্যান্স ও ব্যাংকিং সেক্টরের পরিচিতদের সাথে এই রিসোর্সটি শেয়ার করুন:</p>
+      <div class="share-buttons">
+        <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20IFRS%209%20ECL%20Guide%20by%20Sabuj%20Mollah" target="_blank" class="share-btn share-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php" target="_blank" class="share-btn share-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/" target="_blank" class="share-btn share-li"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+        <button class="share-btn share-copy" onclick="copyLink()"><i class="fa-regular fa-copy"></i> লিংক কপি করুন</button>
+      </div>
+    </div>
+
+    <!-- Professional Services -->
+    <div id="services">
+      <div class="section-title">
+        <h2>প্রফেশনাল কন্টেন্ট ও ফাইন্যান্স কনসালটেন্সি</h2>
+        <p>ব্যাংকিং ডকুমেন্টস, ক্রেডিট অ্যানালাইসিস ও কাস্টম কন্টেন্ট রাইটিং সার্ভিসেস</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fa-solid fa-pen-nib"></i>
+          <h3>ফাইন্যান্সিয়াল কন্টেন্ট রাইটিং</h3>
+          <p>ব্যাংকিং, রেগুলেটরি কমপ্লায়েন্স, এবং ক্রেডিট রিস্ক বিষয়ে ইন-ডেপথ ব্লগ, আর্টিকেল ও লিংকডইন পোস্ট ড্রাফটিং।</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-chart-line"></i>
+          <h3>IFRS 9 মডেলিং সাপোর্ট</h3>
+          <p>লোন পোর্টফোলিও ক্লাসিফিকেশন, এক্সপেক্টেড লস ক্যালকুলেশন ও স্ট্রেস টেস্টিং মডেলিং সাপোর্ট।</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-file-contract"></i>
+          <h3>ক্রেডিট মেমোরেন্ডাম রিভিউ</h3>
+          <p>বড় কর্পোরেট ও ইন্ডাস্ট্রিয়াল ফাইন্যান্স প্রপোজাল, রিস্ক অ্যাসেসমেন্ট এবং বোর্ড ডক ড্রাফটিং।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal" id="orderModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="bkash-badge">বিকাশ / নগদ পার্সোনাল: 01XXXXXXXXX</div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">উপরের নম্বরে ৳৭৫০ সেন্ড মানি (Send Money) করে নিচের ফর্মটি পূরণ করুন। তাৎক্ষণিক ইমেইলে ডাউনলোড লিংক পৌঁছে যাবে।</p>
+      
+      <form onsubmit="handleOrder(event)">
+        <div class="form-group">
+          <label>আপনার নাম</label>
+          <input type="text" placeholder="যেমন: সাজিদ হাসান" required>
+        </div>
+        <div class="form-group">
+          <label>ইমেইল অ্যাড্রেস (যেখানে বই পাঠানো হবে)</label>
+          <input type="email" placeholder="example@mail.com" required>
+        </div>
+        <div class="form-group">
+          <label>পেমেন্ট মেথড ও TrxID</label>
+          <input type="text" placeholder="TrxID (যেমন: 9J28DAK23)" required>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">অর্ডার সাবমিট করুন</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sabuj Mollah. All Rights Reserved. Specialized Banking & Financial Risk Management.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openPaymentModal() {
+      document.getElementById('orderModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('orderModal').classList.remove('active');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href);
+      alert('ওয়েবসাইট লিংক কপি করা হয়েছে!');
+    }
+    function handleOrder(e) {
+      e.preventDefault();
+      alert('ধন্যবাদ! আপনার পেমেন্ট তথ্য গ্রহণ করা হয়েছে। যাচাই শেষে দ্রুত ই-বুকটি আপনার ইমেইলে পাঠানো হবে।');
+      closeModal();
+    }
+  </script>
+</body>
+</html>
